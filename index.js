@@ -1,9 +1,17 @@
-console.log('begiedz developer');
+const express = require('express');
+const { readFile } = require('fs');
+// import express from 'express';
+const app = express();
 
-console.log(global.luckyNum);
+app.get('/', (req, res) => {
+    readFile('./home.html', 'utf8', (err, html) => {
+        if (err) {
+            response.status(500).send('sorry, out of order');
+        }
+        res.send(html);
+    });
+});
 
-global.luckyNum = '3';
-
-console.log(global.luckyNum);
-
-console.log(process.platform);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`App avaible on http://localhost:3000`);
+});
