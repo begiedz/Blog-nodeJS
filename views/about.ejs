@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+<%- include('./partials/head.ejs') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %> | bgdz
-    </title>
-</head>
+    <body>
+        <%- include('./partials/nav.ejs') %>
 
-<body>
-    <nav>
-        <div class="site-title">
-            <h1><a href="/">begiedz Blog</a></h1>
-            <p>Node.js site</p>
-        </div>
-        <ul>
-            <li><a href="/">Blogs</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-    </nav>
-
-    <div class="about content">
-        <h2>About us</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus distinctio ipsum tempora dicta vel
-            inventore explicabo, nulla porro quod nam magni repudiandae ullam recusandae ipsa aut alias tenetur, quidem
-            atque?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex mollitia, perferendis ab omnis, laborum, ratione
-            ipsa qui cumque soluta reiciendis numquam commodi debitis quo reprehenderit a. Pariatur at quae maiores.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas reiciendis, assumenda fugit quidem
-            aspernatur tempore saepe neque quis itaque illum sint corporis necessitatibus eaque officia minima
-            praesentium distinctio mollitia! Expedita!</p>
-    </div>
-</body>
+            <div class="about content">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus distinctio ipsum tempora
+                    dicta
+                    vel
+                    inventore explicabo, nulla porro quod nam magni repudiandae ullam recusandae ipsa aut alias tenetur,
+                    quidem
+                    atque?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex mollitia, perferendis ab omnis, laborum,
+                    ratione
+                    ipsa qui cumque soluta reiciendis numquam commodi debitis quo reprehenderit a. Pariatur at quae
+                    maiores.
+                </p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas reiciendis, assumenda fugit quidem
+                    aspernatur tempore saepe neque quis itaque illum sint corporis necessitatibus eaque officia minima
+                    praesentium distinctio mollitia! Expedita!</p>
+            </div>
+            <%- include('./partials/footer.ejs') %>
+    </body>
 
 </html>

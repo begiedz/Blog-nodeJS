@@ -1,43 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<%- include('./partials/head.ejs') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %> | bgdz
-    </title>
-</head>
+    <body>
+        <%- include('./partials/nav.ejs') %>
 
-<body>
-    <nav>
-        <div class="site-title">
-            <h1><a href="/">begiedz Blog</a></h1>
-            <p>Node.js site</p>
-        </div>
-        <ul>
-            <li><a href="/">Blogs</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-    </nav>
+            <div class="blogs content">
+                <h2>All Blogs</h2>
 
-    <div class="blogs content">
-        <h2>All Blogs</h2>
-
-        <% if (blogs.length> 0) { %>
-            <% blogs.forEach(blog=> { %>
-                <h3 class="title">
-                    <%= blog.title %>
-                </h3>
-                <p class="snippet">
-                    <%= blog.snippet %>
-                </p>
-                <% }) %>
-                    <% } else {%>
-                        <p>There are no blogs to display</p>
-                        <% } %>
-    </div>
-</body>
+                <% if (blogs.length> 0) { %>
+                    <% blogs.forEach(blog=> { %>
+                        <h3 class="title">
+                            <%= blog.title %>
+                        </h3>
+                        <p class="snippet">
+                            <%= blog.snippet %>
+                        </p>
+                        <% }) %>
+                            <% } else {%>
+                                <p>There are no blogs to display</p>
+                                <% } %>
+            </div>
+            <%- include('./partials/footer.ejs') %>
+    </body>
 
 </html>
