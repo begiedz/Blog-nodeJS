@@ -24,9 +24,11 @@ const server = http.createServer((req, res) => {
 
     //set header content type
     //what content type i want to send
-    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Type', 'text/html');
 
-    res.write('hello, begiedz');
+    res.write('<head><link rel="stylesheet" href="#"></head>');
+    res.write('<p>hello, begiedz</p>');
+    res.write('<p>elo, begiedz</p>');
     res.end();
 });
 
