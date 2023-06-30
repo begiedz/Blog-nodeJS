@@ -10,6 +10,10 @@ app.set('view engine', 'ejs');
 //listen for req
 app.listen(3000);
 
+//midleware & static files
+
+app.use(express.static('public'));
+
 // app.use((req, res, next) => {
 //     console.log('new request made');
 //     console.log('host: ', req.hostname);
