@@ -1,4 +1,4 @@
-const { default: mongoose, mongo } = require('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const blogSchema = new Schema(
@@ -19,6 +19,6 @@ const blogSchema = new Schema(
     { timestamps: true }
 );
 
-const blog = mongoose.model('blog', blogSchema);
+const Blog = mongoose.model('Blog', blogSchema);
 
 module.exports = Blog;
