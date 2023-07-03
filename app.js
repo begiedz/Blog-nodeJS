@@ -25,53 +25,25 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(morgan('dev'));
 
-//mongoose and mongodb sandbox routes
-app.get('/add-blog', (req, res) => {
-    const blog = new Blog({
-        title: 'super blog',
-        snippet: 'aaaaa',
-        body: 'lorem ipsum',
-    });
-
-    blog.save()
-        .then((result) => {
-            res.send(result);
-        })
-        .catch((err) => console.log(err));
-});
-
-app.get('/all-blogs', (req, res) => {
-    Blog.find()
-        .then((result) => {
-            res.send(result);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-});
-
-app.get('/single-blog', (req, res) => {
-    Blog.findById('64a12fdabdea8358d6137f2d')
-        .then((result) => {
-            res.send(result);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-});
-
 // routes
 app.get('/', (req, res) => {
-    const blogs = [
-        { title: 'Jak console.logować jak mistrz', snippet: ' Lorem ipsum dolor sit amet.' },
-        { title: 'Java w wersji Script', snippet: ' Lorem ipsum dolor sit amet.' },
-        { title: 'PHP dla opornych', snippet: ' Lorem ipsum dolor sit amet.' },
-    ];
-    res.render('index', { title: 'Home', blogs });
+    res.redirect('blogs');
+    // res.render('index', { title: 'Home', blogs });
 });
 
 app.get('/about', (req, res) => {
     res.render('about', { title: 'About' });
+});
+// blog routes
+app.get('/blogs', (req, res) => {
+    Blog.find()
+        .sort({ createdAt: -1 })
+        .then((result) => {
+            res.render('index', { title: 'All blogs', blogs: result });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 });
 
 app.get('/blogs/create', (req, res) => {
