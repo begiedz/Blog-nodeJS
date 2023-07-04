@@ -50,7 +50,7 @@ app.get('/blogs', (req, res) => {
 
 app.post('/blogs', (req, res) => {
     // req.body;
-    // console.log(req.body);
+    console.log(req.body);
     const blog = new Blog(req.body);
 
     blog.save()
@@ -60,6 +60,10 @@ app.post('/blogs', (req, res) => {
         .catch((err) => {
             console.log(err);
         });
+});
+
+app.get('/blogs/create', (req, res) => {
+    res.render('create', { title: 'Create a new Blog' });
 });
 
 app.get('/blogs/:id', (req, res) => {
@@ -83,10 +87,6 @@ app.delete('/blogs/:id', (req, res) => {
         .catch((err) => {
             console.log(err);
         });
-});
-
-app.get('/blogs/create', (req, res) => {
-    res.render('create', { title: 'Create a new Blog' });
 });
 
 // 404
